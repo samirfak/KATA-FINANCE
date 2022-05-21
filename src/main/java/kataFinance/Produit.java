@@ -1,41 +1,91 @@
 package kataFinance;
 
-import java.util.ArrayList;
+/**
+ * 
+ * @author samirfak
+ *
+ */
 
 public class Produit {
-	private ArrayList<Underlying> underlyings;
+	private /*ArrayList<Underlying>*/ Underlyings underlyings;
 	private String id;
 	
+	/**
+	 * 
+	 * @param id
+	 * @param underlying
+	 */
 	public Produit(String id, Underlying underlying) {
 		this.id = id;
-		this.underlyings = new ArrayList<>();
+		this.underlyings = new Underlyings();/* ArrayList<>()*/;
 		if (underlying != null) {
 			underlyings.add(underlying);
 		}
 	}
 	
-	public boolean add(Underlying underlying) {		
-		return this.underlyings.add(underlying);
+	/**
+	 * 
+	 * @param id
+	 * @param underlyings
+	 */
+	public Produit(String id, Underlyings underlyings) {
+		this.id = id;
+		this.underlyings = underlyings;
 	}
 	
-	public void setUnderlyings(ArrayList<Underlying> u) {
+	/**
+	 * 
+	 * @param underlying
+	 */
+	public void add(Underlying underlying) {		
+		 this.underlyings.add(underlying);
+	}
+	
+	/**
+	 * 
+	 * @param u
+	 */
+	public void setUnderlyings(/*ArrayList<Underlying>*/ Underlyings u) {
 		this.underlyings = u;
 	}
 	
+	/**
+	 * 
+	 * @param forex
+	 * @return
+	 */
 	public double prixProduit(Forex forex) {
-		double sum = 0;
+		/*double sum = 0;
 		for (Underlying u : underlyings) {
 			sum += u.getPrice() * forex.taux(u.getCurrency());
-		}
-		return sum;
+		}*/
+		return underlyings.prix(forex);
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getId() {
 		return this.id;
 	}
 	
-	public ArrayList<Underlying> getUnderlyings() {
+	/**
+	 * 
+	 * @return
+	 */
+	public Underlyings getUnderlyings() {
 		return this.underlyings;
+	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	public String toString() {
+		StringBuilder res = new StringBuilder("");
+		res.append(id + ": \n" + underlyings.toString());
+		return res.toString();
 	}
 
 }
