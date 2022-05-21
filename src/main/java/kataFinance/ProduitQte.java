@@ -23,19 +23,37 @@ public class ProduitQte {
 	}*/
 	private Produit produit;
 	private int qte;
+	
+	/**
+	 * 
+	 * @param produit
+	 * @param qte
+	 */
 	public ProduitQte(Produit produit, int qte) {
 		this.produit = produit;
 		this.qte = qte;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getQte() {
 		return qte;
 	}
 	
+	/**
+	 * 
+	 * @param qte
+	 */
 	public void setQte(int qte) {
 		this.qte = qte;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public Produit getProduit() {
 		return produit;
 	}
