@@ -63,13 +63,10 @@ public class ValoCB {
 						System.out.println("Vérifier données: Erreur dans le fichier Forex.csv à la ligne " + (i+1) );
 					}
 				}				
-			}
-			
+			}	
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -96,10 +93,8 @@ public class ValoCB {
 			}
 			
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -126,31 +121,31 @@ public class ValoCB {
 					}
 				}				
 			}
-			//clients.toString();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		//Création et ouverture des fichiers résultats
 		try (PrintWriter ptfFile = new PrintWriter(new FileWriter("src/main/resultats/Reporting-portfolio.csv")); 
 				PrintWriter clientFile = new PrintWriter(new FileWriter("src/main/resultats/Reporting-client.csv"))){
+			//ecriture des nom de colonnes dans le fichier portfolio
 			ptfFile.println("PTF,price");
+			//Parcourir la map des portfolios
 			for (Map.Entry<String, Produits> ptf : ptfs.getPortfolio().entrySet()) {
 				String key = ptf.getKey();
+				//Ecriture du nom du portfolio courant suivi de son prix dans le fichier
 				ptfFile.println( key + "," + ptfs.prix(key, forex, pQT));
 			}
-			
+			//ecriture des nom de colonnes dans le fichier client
 			clientFile.println("Client,capital");
 			for (Map.Entry<String, ProduitsQtes>  client : clients.getClients().entrySet()) {
 				String key = client.getKey();
+				//Ecriture du nom du client courant suivi de son capital dans le fichier
 				clientFile.println( key + "," + clients.calculer(key, forex));
-			}
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			}			
+		} catch (IOException e) {	
 			e.printStackTrace();
 		}
 		
