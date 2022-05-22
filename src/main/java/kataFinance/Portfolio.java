@@ -28,6 +28,14 @@ public class Portfolio {
 	}
 	
 	/**
+	 * Retourne la liste de produits d'un portefeuille
+	 * @param id identifiant du portefeuille
+	 * @return
+	 */
+	public Produits get(String id) {
+		return portfolio.get(id);
+	}
+	/**
 	 * Ajoute un portefeuille ainsi qu'un produit associé à la map 
 	 * ou si le portefeuille est déjà présent, ajoute un produit à sa liste de produits
 	 * ou si le portefeuille et le produit existent déjà, ajoute l'underlying de produit 

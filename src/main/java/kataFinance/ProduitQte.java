@@ -1,33 +1,20 @@
-/**
- * 
- */
 package kataFinance;
 
-//import java.util.HashMap;
 
 /**
+ * Classe représentant un produit et sa quantité
  * @author samirfak
  *
  */
 public class ProduitQte {
-	/* private HashMap<Produit, Integer> pdQte;
-	public ProduitQte() {
-		pdQte = new HashMap<>();
-	}
 	
-	public boolean add(Produit p, int qte) {
-		if (pdQte.containsKey(p)) {
-			return false;
-		}
-		return pdQte.put(p, qte) == -1;
-	}*/
 	private Produit produit;
 	private int qte;
 	
 	/**
-	 * 
-	 * @param produit
-	 * @param qte
+	 * Constructeur
+	 * @param produit 
+	 * @param qte quantité du produit
 	 */
 	public ProduitQte(Produit produit, int qte) {
 		this.produit = produit;
@@ -35,7 +22,7 @@ public class ProduitQte {
 	}
 	
 	/**
-	 * 
+	 * Retourne la quantité du produit
 	 * @return
 	 */
 	public int getQte() {
@@ -43,15 +30,23 @@ public class ProduitQte {
 	}
 	
 	/**
-	 * 
-	 * @param qte
+	 * Modifie la quantité du produit
+	 * @param qte nouvelle quantité du produit
 	 */
 	public void setQte(int qte) {
 		this.qte = qte;
 	}
 	
 	/**
-	 * 
+	 * Modifie le produit
+	 * @param p nouveau produit
+	 */
+	public void setProduit(Produit p) {
+		this.produit = p;
+	}
+	
+	/**
+	 * Renvoie le produit
 	 * @return
 	 */
 	public Produit getProduit() {

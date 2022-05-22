@@ -43,6 +43,14 @@ public class Underlyings {
 	}
 	
 	/**
+	 * Retourne la liste des underlyings
+	 * @return
+	 */
+	public ArrayList<Underlying> getListe() {
+		return underlyings;
+	}
+	
+	/**
 	 * Retourne une description de la liste des underlyings
 	 * @return 
 	 */

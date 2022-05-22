@@ -1,32 +1,33 @@
 package kataFinance;
 
 /**
- * 
+ * Classe représentant un produit
  * @author samirfak
- *
  */
 
 public class Produit {
-	private /*ArrayList<Underlying>*/ Underlyings underlyings;
+	/* Underlyings du produit */
+	private Underlyings underlyings;
+	/* Identifiant du produit*/
 	private String id;
 	
 	/**
-	 * 
-	 * @param id
-	 * @param underlying
+	 * Constructeur pour un produit
+	 * @param id identifiant produit
+	 * @param underlying un underlying du produit 
 	 */
 	public Produit(String id, Underlying underlying) {
 		this.id = id;
-		this.underlyings = new Underlyings();/* ArrayList<>()*/;
+		this.underlyings = new Underlyings();
 		if (underlying != null) {
 			underlyings.add(underlying);
 		}
 	}
 	
 	/**
-	 * 
-	 * @param id
-	 * @param underlyings
+	 * Constructeur pour un produit
+	 * @param id identifiant produit
+	 * @param underlyings liste d'underlyings du produit
 	 */
 	public Produit(String id, Underlyings underlyings) {
 		this.id = id;
@@ -34,36 +35,32 @@ public class Produit {
 	}
 	
 	/**
-	 * 
-	 * @param underlying
+	 * Ajoute un underlying à un produit
+	 * @param underlying underlying à ajouter
 	 */
 	public void add(Underlying underlying) {		
 		 this.underlyings.add(underlying);
 	}
 	
 	/**
-	 * 
-	 * @param u
+	 * Modifie la liste d'underlyings du produit
+	 * @param u nouvelle liste d'underlyings
 	 */
-	public void setUnderlyings(/*ArrayList<Underlying>*/ Underlyings u) {
+	public void setUnderlyings(Underlyings u) {
 		this.underlyings = u;
 	}
 	
 	/**
-	 * 
-	 * @param forex
-	 * @return
+	 * Calcule le prix d'un produit via sa liste d'underlyings
+	 * @param forex map pour la conversion
+	 * @return prix du produit
 	 */
 	public double prixProduit(Forex forex) {
-		/*double sum = 0;
-		for (Underlying u : underlyings) {
-			sum += u.getPrice() * forex.taux(u.getCurrency());
-		}*/
 		return underlyings.prix(forex);
 	}
 	
 	/**
-	 * 
+	 * Retourne l'id du produit
 	 * @return
 	 */
 	public String getId() {
@@ -71,7 +68,7 @@ public class Produit {
 	}
 	
 	/**
-	 * 
+	 * Retourne la liste d'underlyings du produit
 	 * @return
 	 */
 	public Underlyings getUnderlyings() {
@@ -79,7 +76,7 @@ public class Produit {
 	}
 	
 	/**
-	 * 
+	 * Renvoie une description du produit sous forme de String
 	 */
 	@Override
 	public String toString() {

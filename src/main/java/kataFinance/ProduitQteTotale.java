@@ -28,6 +28,7 @@ public class ProduitQteTotale {
 	 * @param qte quantité du produit
 	 */
 	public void add (String id, int qte) {
+		assert (qte > 0);
 		//Si le produit existe déjà dans la map
 		if (pQT.containsKey(id)) {
 			//récupérer sa qauantité courante
@@ -48,5 +49,13 @@ public class ProduitQteTotale {
 	 */
 	public int get(String id) {
 		return pQT.get(id);
+	}
+	
+	/**
+	 * Retourne la map
+	 * @return
+	 */
+	public HashMap<String, Integer> getPQT() {
+		return pQT;
 	}
 }

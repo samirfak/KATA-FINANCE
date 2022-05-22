@@ -51,11 +51,11 @@ public class Forex {
 		for (Map.Entry<PaireDevises, Double> frx : forex.entrySet()) {			
 			PaireDevises p = (PaireDevises) frx.getKey();
 			//Si la devise est à la 1ère position de la paire
-			if (p.index(currency) == 0) {
+			if (p.index(currency) == 0 && p.getDev2().equals("EUR")) {
 				//retourner le taux de conversion vers la 2eme devise ("euro")
 				return (double) frx.getValue();
 			//sinon si la devise est à la 2ème position de la paire
-			} else if (p.index(currency) == 1) {
+			} else if (p.index(currency) == 1 && p.getDev1().equals("EUR")) {
 				//retourner le taux de conversion vers la 1ere devise ("euro")
 				return  1/(double)frx.getValue();
 			}			

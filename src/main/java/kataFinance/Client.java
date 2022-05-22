@@ -45,6 +45,17 @@ public class Client {
 		}
 	}
 	
+	public ProduitsQtes get(String id) {
+		return clients.get(id);
+	}
+	/**
+	 * Dis si un client est présent dans la map
+	 * @param id identifiant du client
+	 * @return
+	 */
+	public boolean contains(String id) {
+		return clients.containsKey(id);
+	}
 	/**
 	 * Calcule le prix des produits pour un client
 	 * @param idClient l'id du client pour lequel on veut calculer le prix des produits
